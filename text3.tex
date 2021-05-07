@@ -1,0 +1,149 @@
+\documentclass{template/template}
+
+\renewcommand{\familydefault}{\sfdefault} %% Only if the base font of the document is to be sans serif
+\usepackage{bera}
+
+\usepackage[T1]{fontenc} % evropské uvozovky
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{gensymb} % balíček symbolů
+\usepackage{booktabs}
+%\usepackage{lmodern}
+\usepackage{csquotes} % text lze uvést do uvozovek pomocí \enquote{text}
+\usepackage{textcomp}
+
+\usepackage[toc,page]{appendix}
+\usepackage{color} % balíček pro obarvování textů
+\usepackage{xcolor}  % zapne možnost používání barev, mj. pro \definecolor
+\definecolor{mygreen}{RGB}{0,153,153} % nastavení barev odkazů 
+\usepackage{listings} % balíček pro formátování zdrojových kódů 
+\usepackage[author=,status=draft]{fixme} % vkládání poznámek  
+% dva módy (status): draft (poznámky se zobrazují v PDF) / final (poznámky se nezobrazují v PDF)
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{float}
+
+\usepackage{expl3} % bibtex dependency, must be loaded prior to the bibtex
+\usepackage[backend=bibtex,bibstyle=numeric,sorting=none,date=long,dateabbrev=false,texencoding=utf8,bibencoding=utf8,style=iso-numeric]{biblatex}
+
+\usepackage[a4paper]{geometry}
+
+\lstset { 
+    language=C++,
+    backgroundcolor=\color{black!5}, % set backgroundcolor
+    basicstyle=\footnotesize,% basic font setting
+}
+
+\addbibresource{text.bib}
+\nocite{*}
+
+\titlecz{Párty světla} % Název práce
+\author{Anna Králová} % Jméno autora
+\institution{STŘEDNÍ PRŮMYSLOVÁ A~VYŠŠÍ ODBORNÁ ŠKOLA BRNO, Sokolská 1} % Celý název instituce
+\institutiontype{příspěvková organizace} % Typ instituce
+\thesistype{Ročníková práce}  % Typ práce/dokumentu
+\mentor{Mgr. Miroslav Burda} % Jméno vedoucího práce
+%\mentorstatement{Ing. Václava Zavadila} % Jméno vedoucího práce ve čtvrtém pádě
+
+% Newly added
+\authorname{Anna}
+\authorsurname{Králová}
+\schoolyear{2020/2021}
+\field{Technické Lyceum} % Studijní obor
+\class{L3A}
+
+\placefooter{Brno 2021}
+
+% \usepackage{hyperref} % balíček pro hypertextové odkazy
+% \url{www.odkaz.cz}
+% \href{http://www.odkaz.cz}{Text který bude jako odkaz}
+% \hyperlink{label}{proklikávací_text} - odkaz na text 
+% \hypertarget{label}{cíl_odkazu} - cíl odkazu 
+
+%%% Přepínač pracovní kopie
+\workcopytrue
+%\workcopyfalse
+
+\begin{document}
+\hyphenation{SOLIDWORKS Solid/-Works}
+
+\newgeometry{margin=2cm, top=3cm, bottom=2.5cm, left=2.5cm, includefoot}
+
+\maketitle
+
+\newgeometry{margin=2cm, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2cm, includefoot}
+
+\makecopyrightstatement{V~Brně}
+
+
+
+\pagestyle{empty}
+
+\section*{Zadání}
+
+Cílem této ročníkové práce je sestrojit fukční prototyp malého světýlka za použití programovatelného, inteligentního LED Pásku. 
+
+
+%\subsection*
+
+\vspace{20mm}
+
+%\section*
+
+%\subsection*
+
+\newpage
+\pagestyle{plain}
+
+\tableofcontents % vysází obsah
+
+\setlength{\parskip}{0.4em}
+
+%%% Začátek práce
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\newpage
+
+% Úvod práce
+\input{CHAPTERS/01 - UVOD.tex}
+
+% Proč?
+\input{CHAPTERS/05 - POUŽITÉ SOUČÁSTKY.tex}
+
+% Realizace projektu
+\input{CHAPTERS/010 - PROGRAM.tex}
+
+% Návody na instalaci a rozjetí SolidWorks
+\input{CHAPTERS/015 - OVLÁDÁNÍ PŘES MOBIL.tex}
+
+% Modelování základních stroj.  součástí
+\input{CHAPTERS/020 - FUNKČNOST LED.tex}
+
+% Operace v sestavách
+\input{CHAPTERS/025 - TEORETICKÉ VYUŽITÍ DO BUDOUCNA.tex}
+
+% Návody z výkresové dokumentace
+%\input{CHAPTERS/030 - VYKRESOVA-DOKUMENTACE.tex}
+
+% Zaver prace
+\input{CHAPTERS/095 - ZAVER.tex}
+\newpage
+
+\appendix
+\addcontentsline{toc}{chapter}{Přílohy}
+
+% Prilohy
+%\input{CHAPTERS/100 - PRILOHY.tex}
+
+\printbibliography[title=Literatura]
+\addcontentsline{toc}{chapter}{Literatura}
+
+\listoffigures
+\addcontentsline{toc}{section}{Seznam obrázků}
+
+\listoftables
+\addcontentsline{toc}{section}{Seznam tabulek}
+
+\end{document}

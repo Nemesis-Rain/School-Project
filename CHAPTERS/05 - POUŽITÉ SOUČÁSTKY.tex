@@ -1,0 +1,40 @@
+\chapter{Použité součástky}
+
+V této kapitole budou představeny součástky, se kterými se v budoucnu použijeme
+
+\section{ESP32 DevkitC}
+%Co to je?
+ESP32-DevKitC je malá programovatelná deska založená na ESP32 od společnosti Espressif. Vstupní a výstupní piny se nachází na obou stranách desky, což umožňuje uživateli připoji periferní zařízení jak pomocí propojovacích vodičů, tak připojením k nepájivému poli. Na desce se také nachází mikro-USB port který dovoluje  desku jedoduše napájet přímo z počítače, stejně jako nahrávat na desku soubory. 
+
+
+%Co se s tím dá dělat
+Deska je pompatibilní s Arduinem a často se v kombinaci zrovna s tímto typem součástek používá. Díky zabudovanému Wifi modulu je možné se na součástku napojit a používat jakékoliv zařízení pracující s Wifi, (například chytrý mobil), aby se k součástce napojilo a fungovalo jako dálkový ovladač, což jsem v praxi nejčastěji viděla už ke zvýše zmíněnému programování LED světel, ale prakticky se s ESP32 DevkitC dá dělat prakticky cokoliv: Použít ho jako procesor pro po domácku vyrobený alarm, nebo zaznamenávaše počasí. 
+
+
+%Proč jsem si vybrala zrovna tuto součástku.
+Já se ESP32 DevkitC rozhodla použít nejen proto, že v mém okolí mělo spoustu lidí s touto technoligií zkušenosti a mohli mi v případě nějakého problému jednoduše pomoct, ale hlavně kvůli dostupnosti a všestranému využití. Navíc Wifi modul na této desce se jednoduše dá využít pro dálkové ovládání ESP32 z mobilu což vyhovuje našim záměrům. Navíc rozměry desky ESP32 DevkitC(přibližně 5,5 cm na 3 cm) jsou vyhovující pro pozdější vybudování napájecí základny, která bude napájet a řídit LEDky schované v průchledném plastové květině.
+
+
+\section{NeoPixel modul s 8 RGB LED WS2812}
+%Co to je? Co se s tím dá dělat
+Jedná se o pevný pásek s inteligentními LED diodami za sebou. Často využívá jako výstupní model pro Arduino a obsahuje 8 RGB LED diod typu WS2812, kterou lze najít i pod označením NeoPixel. Výhoda tohoto LED pásku je, že se dá řídit pomocí jednoho datového pinu a dvěma napájecími piny, což umožňuje kontrolér ve WS diodách. Tento modul se sice nehodí našemu původnímu záměru, který vyžaduje, ale Ledky byli na pásku ohebném, ale jako modul pro testování postačí.
+
+
+%Proč jsem si vybrala zrovna tuto součástku.
+Tuto součástku jsem se rozhodla použít ze dvou důvodů. Ten první byl, že jsem neměla ještě úplně jistě vybraný finální ohebný led pásek, jaký bych chtěla použít. Ten druhý důvod byl stejně, jako v případě ESP, že kdyby nastaly při práci s tímto modulem nějaké problémy, tak jsem znala spoustu lidí, kteří by mi s případnými problémy dokázali pomoci. 
+
+
+\section{Pásek ws2812 ohebný}
+Po nějaké době práce s předchozím LED-páskem jsem si nakonec rozhodla vybrat skoro totožný pásek až na určitou maličkost, a to, aby byl Jednoduše ohebný a tvarovatelný. Pracuje a programuje se s ním stejně, jako s předchozím páskem, avšak, jelikož to více vyhovovalo záměru tak jsem tentokrát použila pásek se čtyřmi RGB LED diodami. 
+
+\section{Pájení}
+
+
+%Otázky na učitele:
+%Mám přidat obrázky? 
+%Nevím jak pojmenávávat jednotlivé komponenty. Stačí to takhle? 
+
+%Ostatní poznámky:
+%Deska má tři druhy napájení, ale já budu využívat pouze napájení zkrz mikro-USB protože je to pro mě nejjednodušší. Stejně tak do toho budu posílat nahrané soubory z počítače
+%Je potřeba vymyslet systém napájení
+%Jak to funguje? Jaké je rozložení dané desky? 
