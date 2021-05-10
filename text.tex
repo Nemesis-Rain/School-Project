@@ -1,7 +1,7 @@
 \documentclass{template/template}
 
-\renewcommand{\familydefault}{\sfdefault} %% Only if the base font of the document is to be sans serif
-\usepackage{bera}
+%\renewcommand{\familydefault}{\sfdefault} %% Only if the base font of the document is to be sans serif
+%\usepackage{bera}
 
 \usepackage[T1]{fontenc} % evropské uvozovky
 \usepackage{subcaption}
@@ -25,8 +25,8 @@
 \usepackage{multirow}
 \usepackage{float}
 
-\usepackage{expl3} % bibtex dependency, must be loaded prior to the bibtex
-\usepackage[backend=bibtex,bibstyle=numeric,sorting=none,date=long,dateabbrev=false,texencoding=utf8,bibencoding=utf8,style=iso-numeric]{biblatex}
+%\usepackage{expl3} % bibtex dependency, must be loaded prior to the bibtex
+%\usepackage[backend=bibtex,bibstyle=numeric,sorting=none,date=long,dateabbrev=false,texencoding=utf8,bibencoding=utf8,style=iso-numeric]{biblatex}
 
 \usepackage[a4paper]{geometry}
 
@@ -36,8 +36,8 @@
     basicstyle=\footnotesize,% basic font setting
 }
 
-\addbibresource{text.bib}
-\nocite{*}
+%\addbibresource{text.bib}
+%\nocite{*}
 
 \titlecz{Párty světla} % Název práce
 \author{Anna Králová} % Jméno autora
@@ -65,6 +65,8 @@
 %%% Přepínač pracovní kopie
 \workcopytrue
 %\workcopyfalse
+
+%\renewcommand\bibname{Literatura a zdroje}
 
 \begin{document}
 \hyphenation{SOLIDWORKS Solid/-Works}
@@ -129,21 +131,23 @@ Cílem této ročníkové práce je sestrojit fukční prototyp malého světýl
 
 % Zaver prace
 \input{CHAPTERS/095 - ZAVER.tex}
-\newpage
 
-\appendix
-\addcontentsline{toc}{chapter}{Přílohy}
+\clearpage
+\phantomsection
+
+%\appendix
+%\addcontentsline{toc}{chapter}{Přílohy}
 
 % Prilohy
 %\input{CHAPTERS/100 - PRILOHY.tex}
 
-\printbibliography[title=Literatura]
-\addcontentsline{toc}{chapter}{Literatura}
+\input literatura.tex
+
 
 \listoffigures
-\addcontentsline{toc}{section}{Seznam obrázků}
+\addcontentsline{toc}{chapter}{Seznam obrázků}
 
-\listoftables
-\addcontentsline{toc}{section}{Seznam tabulek}
+%\listoftables
+%\addcontentsline{toc}{chapter}{Seznam tabulek}
 
 \end{document}
