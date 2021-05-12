@@ -18,6 +18,11 @@
 \usepackage{color} % balíček pro obarvování textů
 \usepackage{xcolor}  % zapne možnost používání barev, mj. pro \definecolor
 \definecolor{mygreen}{RGB}{0,153,153} % nastavení barev odkazů 
+\definecolor{myblue}{RGB}{0,0,200} 
+\definecolor{commentgreen}{RGB}{0,100,0} % nastavení barev pro příklady z C++
+\definecolor{deepblue}{rgb}{0,0,0.7}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
 \usepackage{listings} % balíček pro formátování zdrojových kódů 
 \usepackage[author=,status=draft]{fixme} % vkládání poznámek  
 % dva módy (status): draft (poznámky se zobrazují v PDF) / final (poznámky se nezobrazují v PDF)
@@ -25,16 +30,53 @@
 \usepackage{multirow}
 \usepackage{float}
 
+
+\usepackage[T1]{fontenc} % import tučného písma typu tt pro prostředí listings
+%\usepackage{listings} % balíček pro obarvování syntaxe ukázek programů v textu
+\usepackage{listingsutf8} %nutné pro \usepackage{listings} aby to jelo v UTF-8
+\lstset{
+	extendedchars 	= false,
+	language      	= C++,
+	basicstyle      = \ttfamily,
+	keywordstyle     = \bfseries,
+	%identifierstyle = \color{brown},
+	commentstyle    = \color{commentgreen},
+	otherkeywords	= {self},             % Add keywords here
+	emphstyle		= \color{deepred},    % Custom highlighting style
+	stringstyle	 	= \color{deepgreen},		
+	keywordstyle	=\color{deepblue},
+	stringstyle     = \color{magenta},
+} % písmo a  barvičky  by možná chtěly doladit - nějaký dobrovolník? 
+% volba literate= pro znaky s diakritikou z kódů se zvýrazněnou syntaxí se nesmí používat, rozbíjí překlad
+
+% \begin{lstlisting} Tady je zdrojový kód např. v C++ \end{lstlisting} - pro UTF-8 NE
+%\lstinputlisting{source_filename.py} vloží soubor z daného místa a obarví
+
+\usepackage{hyperref} % balíček pro hypertextové odkazy
+% \url{www.odkaz.cz}
+% \href{http://www.odkaz.cz}{Text který bude jako odkaz}
+%\hyperlink{label}{proklikávací_text} - odkaz na text 
+% \hypertarget{label}{cíl_odkazu} - cíl odkazu  
+
+
+\hypersetup{colorlinks=true, linkcolor=myblue, urlcolor=mygreen, citecolor=blue, anchorcolor = magenta,
+	linktocpage = true, frenchlinks } % nastavení barvy odkazů 
+% bookmarksopen=true, bookmarksnumbered=true, bookmarksopenlevel=1 - nastavuje rozbalování levého menu       
+
+
+
+
+
 %\usepackage{expl3} % bibtex dependency, must be loaded prior to the bibtex
 %\usepackage[backend=bibtex,bibstyle=numeric,sorting=none,date=long,dateabbrev=false,texencoding=utf8,bibencoding=utf8,style=iso-numeric]{biblatex}
 
 \usepackage[a4paper]{geometry}
 
-\lstset { 
-    language=C++,
-    backgroundcolor=\color{black!5}, % set backgroundcolor
-    basicstyle=\footnotesize,% basic font setting
-}
+%\lstset { 
+%    language=C++,
+%    backgroundcolor=\color{black!5}, % set backgroundcolor
+%    basicstyle=\footnotesize,% basic font setting
+%}
 
 %\addbibresource{text.bib}
 %\nocite{*}
