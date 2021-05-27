@@ -2,9 +2,10 @@
 
 \section{V čem psát program a jeho tvorba}
 
-Program jsem se rozhodla psát v programu Visual Studio Code. Pracovala jsem s ním v minulosti a i zde platilo, že jsem kolem měla lidi, který by mi mohli pomoct ve chvíli, když bych měla s něčím problém. Pro psaní kódu jsem použila školní knihovny na programovaní LED světel, které byly původně vyrobeny pro letní Robotický tábor a tak jsem měla o něco lehčí práci, protože jsem knihovny nemusela vytvářet sama.  
+Program jsem se rozhodla psát v programu Visual Studio Code.\cite{Visualstudio} Pracovala jsem s ním v minulosti a i zde platilo, že jsem kolem měla lidi, který by mi mohli pomoct ve chvíli, když bych měla s něčím problém. Pro psaní kódu jsem použila školní knihovny na programovaní LED světel, které byly původně vyrobeny pro letní Robotický tábor a tak jsem měla o něco lehčí práci, protože jsem knihovny nemusela vytvářet sama.  
 Na programování jsou použila pevný LED pásek.
-
+%todo rozepsat se o tom co je Visual studo Code
+%todo Rozepsat se o Táboře --> Propagace
 
 %\href{https://www.tecomat.cz/products/}{teco}
 
@@ -13,6 +14,8 @@ Na programování jsou použila pevný LED pásek.
 
 
 První dva řádky jsou knihovny, které jsem při psaní využívala. Další tři jsou definované proměnné, které určují, kolik LED světel pásek má (8), jaký pin zajišťuje komunikaci s ESP32-DevKit (21), a číslo, které určuje, jaké číslo ponese první LED světlo s tím,  že další LED byly očíslovány vzestupně.
+
+%todo Knihovny --> upload na github
 
 \newpage
 
@@ -39,9 +42,12 @@ Jako druhý mód světla jsem se rozhodla, že použiju světle modrou barvu, kt
 
 Tento program je navrhnut tak, že se zhasnuté LEDky začnou pomalu rozsvěcovat do jasné modré a poté znovu zhasínat do naprosté tmy. A jelikož byl tento příkaz napsán v části loop, tento cyklus se bude opakovat do té doby, dokud nebude zavolána jiná funkce, nebo nebude ESP32-DevkitC odpojena. Docílí se tak moc pěkného pulzujícího modrého efektu. Opět zde není použita plná síla LED světel, aby byly šetřeny moje oči.  
 
+%todo Funkce loop předělat do kurzívy
+%todo ESP32DevKitC taky Kurzívou?
 
 \section{Třetí mód světla}
 Jelikož mi nápad na to, jak jsem udělala pomalu pulzující světlo, připadal skvělý, rozhodla jsem se něco podobného aplikovat i na třetí mód. Tentokrát jsem ale zkusila, jaké by to bylo, kdyby červená barva pomalu přešla do žluté a ze žluté do zelené a pak zase zpět. 
+%Trénovala jsem si tu přechod barev
 
 \href{https://www.tecomat.cz/products/}{teco}
 
@@ -49,10 +55,10 @@ Jelikož mi nápad na to, jak jsem udělala pomalu pulzující světlo, připada
 \lstinputlisting{Code/program3.cpp}
 
 Program na tenhle mód je hodně jednoduchý a využívá podobného principu jako ten předchozí. Opět tu je zpoždění, aby světlo bláznivě neblikalo. Původně jsem chtěla, aby barva připomínala oheň,což mi moc nevyšlo ale i tak to je moc pěkný přechod barvy, který při umístění do plastového krystalu nebo růže (něco jako žárovky) vytvoří nádherný efekt.
-
+%todo Reference na poslední kapitolu? 
 
 \section{Čtvrtý mód světla}
-Původně jsem nechtěla mít víc, než tři módy na mých LEDkých, ale neodolala jsem vidině, že budu mít mód, který mi zařídí, že barevný přechod bude procházet celým barevným spektrem  dokola a dokola. 
+Původně jsem nechtěla mít víc, než tři módy na mých LEDkách, ale neodolala jsem vidině, že budu mít mód, který mi zařídí, že barevný přechod bude procházet celým barevným spektrem  dokola a dokola. 
 
 %nevím co s tímto obrázkem. Jak udělat aby šel text hned vedle obrázku? 
 \href{https://www.tecomat.cz/products/}{teco}
