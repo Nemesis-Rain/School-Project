@@ -2,10 +2,14 @@
 
 \section{V čem psát program a jeho tvorba}
 
-Program jsem se rozhodla psát v programu Visual Studio Code.\cite{Visualstudio} Pracovala jsem s ním v minulosti a i zde platilo, že jsem kolem měla lidi, který by mi mohli pomoct ve chvíli, když bych měla s něčím problém. Pro psaní kódu jsem použila školní knihovny na programovaní LED světel, které byly původně vyrobeny pro letní Robotický tábor a tak jsem měla o něco lehčí práci, protože jsem knihovny nemusela vytvářet sama.  
-Na programování jsou použila pevný LED pásek.
-%todo rozepsat se o tom co je Visual studo Code
-%todo Rozepsat se o Táboře --> Propagace
+Pro psaní kódu jsem použila školní knihovny na programovaní LED světel, které byly původně vyrobeny pro Letní Robotický Tábor od 
+ \href{https://helceletka.cz/tabory/#id=5357}{Helceltky}
+, a tak jsem měla o něco lehčí práci, protože jsem knihovny nemusela vytvářet sama. Program jsem se rozhodla psát v programu Visual StudioCode,\cite{Visualstudio} což je bezplatný editor zdrojového kódu, používající se také na víše zmíněném Letním Robotickém táboře pro práci zrovna s těmito knihovnami. Já pracovala s tímto programem již v minulosti a i zde platilo, že jsem kolem měla lidi, který by mi mohli pomoct ve chvíli, když bych měla s něčím problém. 
+
+Začátek mého programu vypadal takto:
+
+%todo odkaz na školní knihovny
+
 
 %\href{https://www.tecomat.cz/products/}{teco}
 
@@ -13,10 +17,10 @@ Na programování jsou použila pevný LED pásek.
 \lstinputlisting{Code/Zacatek-programu.cpp}
 
 
-První dva řádky jsou knihovny, které jsem při psaní využívala. Další tři jsou definované proměnné, které určují, kolik LED světel pásek má (8), jaký pin zajišťuje komunikaci s ESP32-DevKit (21), a číslo, které určuje, jaké číslo ponese první LED světlo s tím,  že další LED byly očíslovány vzestupně.
+První dva řádky jsou knihovny, které jsem při psaní využívala. Další tři jsou definované proměnné, které určují, kolik LED světel pásek má (8), jaký pin zajišťuje komunikaci s ESP32-DevKit (21), a číslo, které určuje, jaké číslo ponese první LED světlo s tím, že další LED byly očíslovány vzestupně.
 
-%todo Knihovny --> upload na github
-
+%todo Ukol-J – Knihovny --> upload na github (asi)
+%todo Otázka -->Odkazy na čtyři módy na github? 
 \newpage
 
 \section{První mód světla}
@@ -26,10 +30,11 @@ První barvu prvního módu jsem se rozhodla, že bude červená. Jen obyčejná
 \lstinputlisting{Code/program1.cpp}
 
 
-Nejdříve jsem si nadefinovala funkci SetLEDAll, která mi při použití určitého příkazu, jak se LED-ky mají rozsvítit, aplikovala tento příkaz na všechny LED-ky na pásku, a umožnila mi jednodušší manipulaci s programem v pozdější fázi, když jsem všechny tyto módy přepisovala do jednoho programu. 
+Nejdříve jsem si nadefinovala funkci \emph{SetLEDAll}, která mi při použití určitého příkazu, jak se LED mají rozsvítit, aplikovala tento příkaz na všechny LED na pásku, a umožnila mi jednodušší manipulaci s programem v pozdější fázi, když jsem všechny tyto módy přepisovala do jednoho programu. 
+V kontextu tohoto programu to znamenalo, že když jsem barvu nastavila na červenou, zavolala se tato funkce a všechny LED se nastavili na stejnou, tlumeně červenou barvu. Tlumeně červenou proto, že LED zářily opravdu intenzivně a při jasu na 255 mě z nich začaly bolet oči. Proto jsem jas červené nechala na pouhé čtvrtině toho, co by LED zvládly.
+
 %Funkce ShowLeds v sobě zase obsahovala dva příkazy, které se v programu nacházeli pro stabilizaci LEDek. 
-Na dalším obrázku %todo upravit odkaz
- je ukázán samotný program, který provedl to, že zavolal funkci, že se má daná barva aplikovat na všechny LED-ky a nastavila je na tlumeně červenou barvu. Tlumeně červenou proto, že LEDky zářily opravdu intenzivně a při jasu na 255 mě z nich začaly bolet oči. Proto jsem jas červené nechala na pouhé čtvrtině toho, co by LEDky zvládly.
+
 
 \section{Druhý mód světla}
 %nechci aby to blikalo jako blázen 
@@ -40,13 +45,15 @@ Jako druhý mód světla jsem se rozhodla, že použiju světle modrou barvu, kt
 %\lstinputlisting{priklady_c/blikani_LED1.cpp}
 \lstinputlisting{Code/program2.cpp}
 
-Tento program je navrhnut tak, že se zhasnuté LEDky začnou pomalu rozsvěcovat do jasné modré a poté znovu zhasínat do naprosté tmy. A jelikož byl tento příkaz napsán v části loop, tento cyklus se bude opakovat do té doby, dokud nebude zavolána jiná funkce, nebo nebude ESP32-DevkitC odpojena. Docílí se tak moc pěkného pulzujícího modrého efektu. Opět zde není použita plná síla LED světel, aby byly šetřeny moje oči.  
+Tento program je navrhnut tak, že se zhasnuté LED začnou pomalu rozsvěcovat do jasné modré a poté znovu zhasínat do naprosté tmy. A jelikož byl tento příkaz napsán v části \emph{loop}, tento cyklus se bude opakovat do té doby, dokud nebude zavolána jiná funkce, nebo nebude \emph{ESP32-DevkitC} odpojena. Docílí se tak moc pěkného pulzujícího modrého efektu. 
+
+Opět zde není použita plná síla LED světel, aby byly šetřeny moje oči.  
 
 %todo Funkce loop předělat do kurzívy
 %todo ESP32DevKitC taky Kurzívou?
 
 \section{Třetí mód světla}
-Jelikož mi nápad na to, jak jsem udělala pomalu pulzující světlo, připadal skvělý, rozhodla jsem se něco podobného aplikovat i na třetí mód. Tentokrát jsem ale zkusila, jaké by to bylo, kdyby červená barva pomalu přešla do žluté a ze žluté do zelené a pak zase zpět. 
+Nápad na to, jak udělat pomalu pulzující světlo, mi připadal opravdu skvělý. Takže jsem se rozhodla něco podobného aplikovat i na třetí mód. Tentokrát jsem ale zkusila, jaké by to bylo, kdyby červená barva pomalu přešla do žluté a ze žluté do zelené a pak zase zpět.
 %Trénovala jsem si tu přechod barev
 
 \href{https://www.tecomat.cz/products/}{teco}
@@ -54,14 +61,14 @@ Jelikož mi nápad na to, jak jsem udělala pomalu pulzující světlo, připada
 %\lstinputlisting{priklady_c/blikani_LED1.cpp}
 \lstinputlisting{Code/program3.cpp}
 
-Program na tenhle mód je hodně jednoduchý a využívá podobného principu jako ten předchozí. Opět tu je zpoždění, aby světlo bláznivě neblikalo. Původně jsem chtěla, aby barva připomínala oheň,což mi moc nevyšlo ale i tak to je moc pěkný přechod barvy, který při umístění do plastového krystalu nebo růže (něco jako žárovky) vytvoří nádherný efekt.
+Program na tenhle mód je hodně jednoduchý a využívá podobného principu jako druhý mód. Opět tu je zpoždění, aby světlo bláznivě neblikalo. Původně jsem chtěla, aby barva připomínala oheň, což mi moc nevyšlo ale i tak to je moc pěkný přechod barvy, který při umístění do plastového krystalu nebo růže (něco jako \emph{žárovky} vytvoří nádherný efekt. 
 %todo Reference na poslední kapitolu? 
 
 \section{Čtvrtý mód světla}
-Původně jsem nechtěla mít víc, než tři módy na mých LEDkách, ale neodolala jsem vidině, že budu mít mód, který mi zařídí, že barevný přechod bude procházet celým barevným spektrem  dokola a dokola. 
+Původně jsem víc, než tři módy na LED neplánovala, ale po hraní si s různými barvami a barevnými světelnými přechody jsem neodolala a přidala jsem do paměti ještě jeden čtvrtý mód, který jsem pojmenovala \emph{Duha}.
 
 %nevím co s tímto obrázkem. Jak udělat aby šel text hned vedle obrázku? 
-\href{https://www.tecomat.cz/products/}{teco}
+%\href{https://www.tecomat.cz/products/}{teco}
 
 %\lstinputlisting{priklady_c/blikani_LED1.cpp}
 \lstinputlisting{Code/program4.cpp}
