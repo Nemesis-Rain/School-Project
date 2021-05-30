@@ -1,60 +1,87 @@
 \chapter{Ovládání přes mobil}
 %Nemám nejmenší tušení co jsem psát, protože o té webovce nic, ale vůůůůůbec nic nevím
 
+\section{Esp32-RBGridUI-Designer} 
+Pro vytvoření ovládacího prostředí na mobilu, jsem použila {RBGridUI-Designer}, \cite{RBGridUI-Designer} což je prostředí vyvinuté přímo Robotárnou,\cite{robotarna} pro práci s LED a jejich ovládání přes mobil.
 
-\section{Esp32-RBGridUI-Designer} %todo obrázek není tam, kde by měl být
-Pro vytvoření ovládacího prostředí na mobilu, jsem použila {RBGridUI-Designer}, \cite{robotárna} což je prostředí vyvinuté přímo Robotárnou,\cite{robotárna} pro práci s LED a jejich ovládání přes mobil. Webová stránka {\em Esp32-RBGridUI-Designer} má toto rozložení: 
-%todo Na následujícím obrázku lze vidět rozložení webové stránky se kterou jsem pracovala?
-%todo předělat obrázek
+Webová stránka {\em Esp32-RBGridUI-Designer} má toto rozložení: 
+
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=1\textwidth]{img/Esp32-RBGridUI-Designer.png}
-	\caption{Prostředí stránky}
+	\caption{Prostředí stránky {\em GridUI-Designer}}
 	%	\label{fig:install-sdk-3}
 \end{figure}
 
 \begin{enumerate}
-	\item Postraní lišta, pri kliknutí na jakoukoliv komponentu, je uživatel schopen danou kamponentu přetáhnout na manipulační plochu
-	\item Manipulační plocha, přetahují se sem tlačítka a nastavuje se jejich poloha a umístění, určuje vzhled řídící plochy v mobilu po stáhnutí aplikace
-	\item Soubor, který je potřeba stáhnout a nahrát do stejné složky jako máme {/bf program}, nese informace toho, jakým způsobem jsme nanesli komponenty na manipulační plochu.
-	\item /bf Něco %todo vysvětlit
-	\item Bližší specifikace, určující umístění, barvu, a název tlačítka, které bylo vytvořeno na manipulační ploše. 
-	\item Tlačítko Reset které vymaže veškeré komponenty z Manipulační plochy
+	\item Postraní lišta, při kliknutí na jakoukoliv komponentu, je uživatel schopen danou kamponentu přetáhnout na manipulační plochu 
+	\item Manipulační plocha, na kterou se umisťují komponenty z postranní lišty. Nastavuje se tu jejich poloha a umístění. Manipulační plocha určuje vzhled řídící plochy v aplikaci v mobilu při napojení na daný Wifi modul. 
+	\item Soubor Layout, který je potřeba stáhnout a nahrát do stejné složky jako máme hlavní program. Tento soubor nese informace toho, jakým způsobem jsme nanesli komponenty na manipulační plochu.
+	\item  {\bf Něco} %todo Otázka --> vysvětlit Co to je?
+	\item Bližší specifikace, určující umístění, barvu, a název tlačítka, které bylo vytvořeno na manipulační ploše. Tyto informace je možné zde i předělávat a upravoat 
+	\item Tlačítko Reset které vymaže veškeré komponenty z Manipulační plochy a tím pádem i z Layoutu.
 \end{enumerate}
 
+%todo Otázka ---> Jak mám upravit rozložení stránky?
+{\em Esp32-RBGridUI-Designer} je propojený s aplikací {\em RBControler,} \cite{RBControler}
 
-{\em Esp32-RBGridUI-Designer} je propojený s aplikací RBControler, \cite{RBControler}
-%todo reference
 \section{Vytvoření tlačítek}
-Teď přišel čas na to, abych si připravila vlastní tlačítka. Každé tlačítko zpustí jiný mód, a ještě jsem tam chtěla mít tlačítko na vypnutí, takže jsem si celkově nadefinovala 5 tlačítek a pojmenovala je tak, abych se v jejich barvách vyznala. A poté jsem klikla na tlačítko copy to clipboad a zkopírovala jsem celý layout to textového souboru do stejné složky, jako jsem měla nový program  
-%todoDalší obrázky aby to bylo pochopitelné?
+Aby my ale LED dělaly přesně to, co chci, musela jsem nastavit na  4 tlačítka
+Abych mohla barvy na LED ovládat a libovolně mezi nimi přepínat, rozhodla jsem se v {\em RBGridUI-Designeru} vytvořit 5 tlačítek: co tlačítko, to jeden mód a tlačítko na vypnutí světel. Tlačítka jsem si pojmenovala tak, abych se v barvách vyznala a trochu jsem si i pohrála s barvami tlačítek. Poté mi už jen stačilo zkopírovat soubor layout do samostatného textového souboru, pozměnit příponu souboru z {\em .txt} na {\em .hpp} a umístit ho do stejné složky, jako hlavní program.
+%todo Otázka --> obrázek z FreeComanderu?
 
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.8\textwidth]{img/Esp32-RBGridUI-Designer - Tlačítka.png}
-	\caption{Tlačítka}
+%\begin{figure}[htbp]
+%	\centering
+%	\includegraphics[width=0.8\textwidth]{img/Esp32-RBGridUI-Designer - Tlačítka.png}
+%	\caption{Tlačítka}
 	%	\label{fig:install-sdk-3}
-\end{figure}
+%\end{figure}
 %sooooo messy...
-\section{Nový program} %todo Předělat celý tento odstavec
-%todo Vyřešit/předělat nahrání programů?
-Pro to, aby Ledky byli kompatibilní s programem, jsem si musela upravit jeden program který jsem dostala a který mi na mobilu fungoval. % todo odkaz na github 
-Funkce void Setup() v následujícím programu ukazuje část nastavení mobilu a pak definování tlačítek a jejich funkcí. Funkce void Loop() dokončuje ukázku definování tlačítek, která je provedená pomocí funkce switch
-%todo Reference na kapitolu
-*Odkaz na Github*
+\section{Hlavní Program} 
+Nyní nastal čas spojit veškeré programy jednotlivých barevných módů do jediného a finálního programu, který budeme používat a bude naším konečným výsledkem po programovací stránce. 
+Naštěstí jsem část finální program nemusela tvořit úplně z ničeho a využila jsem části jednoho \href{https://github.com/Nemesis-Rain/Supplements-/tree/main/Originální%20program%20%2B%20layout}{darovaného programu}.
+ Tyto části se zabývaly propojením ESP32-DevKitC s mobilem pomocí Wifi modulu. Stačilo tedy barevné módy do programu šikovně zapracovat a vymazat nepotřebné kusy kódu.
 
-%todo loop Kurzívou
+%todo Otázka --> Mám problémy s proklikávacími odkazy na github
+%todo Ukol_J --> Nahrát Hlavní finální program na Github, stejně jako platform.io 
+
+Následující program ukazuje jen části Hlavního programu. 
+
+Funkce {\em void Setup()} ukazuje nastavení jména a hesla na Wifi, propojení s {\em Layout.hpp} ve stejné složce a pak definování a funkci jednotlivých tlačítek, které jsme si nastavili už předtím v {\em RBGridUI-Designeru.}
+
+Funkce {\em void Loop()} dokončuje ukázku definování tlačítek, která je provedená pomocí příkazu {\em switch.}
+
 
 \lstinputlisting{Code/new-program - Setup.cpp}
 
 \lstinputlisting{Code/new-program - Loop.cpp}
 
+\newpage
+
 \section{Propojení mobilu a ESP32-DevkitC a kontrola funkčnosti}
-První krok byl, že jsem si stáhla aplikaci z Google play jménem RB Controler %todo odkaz
-Poté jsem zapojila ESP32-DevkitC, ověřila jsem si, že je v něm nahraný konečný program a připojila jsem se na wifinu jménem LEDLED. 
+Na Google play na mobilu jsem si našla aplikaci jménem \href{https://play.google.com/store/apps/details?id=com.tassadar.rbcontroller}{RB Controler}, také vytvořená pod vedením \href{https://helceletka.cz/robotarna/}{Robotárny}. Aplikaci jsem si nainstalovala a spustila.
 
-%todo Zde bude screenshot obrazovky mého mobilu. (Wifi + ovládací panel)
+Poté jsem zapojila ESP32-DevkitC, ověřila jsem si, že je v něm nahraný Hlavní program a připojila jsem se na wifinu jménem LEDLED. 
 
-Teď už jenom chtělo vyzkoušet, jak moc je daný program kompatibilní a funkční. %todo odkaz na video?
+Po aktualizaci aplikace se mi na obrazovce objevilo:
+
+%todo Ukol-J --> Zde bude screenshot obrazovky mého mobilu.
+
+Teď už jenom chtělo vyzkoušet, jak moc je daný program kompatibilní a funkční.
+ 
+%todo odkaz na video? +++ VIDEO
+
+
+\section{Vyměnění LED pásků}
+
+Jelikož mi LED blikali přesně tak, jak jsem zamýšlela, rozhodla jsem se provést poslední krok, a to k výměně pevného LED pásku za Pásek ohebný, který jsem zmínila předtím už v první kapitole. 
+
+Nebylo to nic  těžkého. Tři Krátké dráty jsem připájela na tři předem připravené kontakty: GND , DIN a 5V. Na druhé konce drátů jsem přidělala pinheady, kteřé jsem připojila k ESP32-DevkitC.Jako vstupní pin jsem znovu zvolila pin 21.
+
+%todo Ukol-J --> Sem přjjde obrázek zapájeného ohebného pásku 
+
+Aby tento pásek fungoval, musela jsem v programu pozměnit proměnnou LED_COUNT z 8 na 4, protože ohebný pásek narozdíl od testovacího měl pouze 4 LED.
+
+%todo Ukol-J --> Ukázat zde část programu s LED_COUNT
 
 \newpage
