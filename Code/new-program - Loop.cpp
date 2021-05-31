@@ -2,14 +2,14 @@ void loop()
 {
     switch (stav)
     {
-    case 1: //blikání jedna, svítí červeně
+    case 1: //blikani jedna, sviti cervene
 
         SetLedAll(64, 0, 0);
         delayMicroseconds(50000);
 
         break;
 
-    case 2: // blikání dva, ledová růže
+    case 2: // blikani dva, ledova ruze
         for (int g = 0; g < 64; g++)
         {
             SetLedAll(0, g, g);
@@ -23,7 +23,7 @@ void loop()
         }
         break;
 
-    case 3: // blikání tři, barevný přechod
+    case 3: // blikani tri, barevny prechod
         for (int g = 0; g < 64; g++)
         {
             SetLedAll(64, g, 0);
@@ -37,7 +37,7 @@ void loop()
         }
         break;
 
-    case 4: // blikání čtyři, duha
+    case 4: // blikani ctyri, duha
         for (int g = 0; g < 64; g++)
         {
             SetLedAll(64, g, 0);
@@ -76,7 +76,7 @@ void loop()
 
         break;
 
-    case 5: //Vypnutí
+    case 5: //Vypnuti
         SetLedAll(0, 0, 0);
         delayMicroseconds(50000);
         break;

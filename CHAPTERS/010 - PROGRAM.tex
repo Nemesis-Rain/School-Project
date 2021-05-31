@@ -3,7 +3,7 @@
 \section{V čem psát program a jeho tvorba}
 
 Pro psaní kódu jsem použila školní knihovny na programovaní LED světel, které byly původně vyrobeny pro Letní Robotický Tábor od 
- \href{https://helceletka.cz/tabory/#id=5357}{Helceltky}. Měla jsem tak o něco lehčí práci, protože jsem knihovny nemusela vytvářet sama. Program jsem se rozhodla psát v programu Visual StudioCode,\cite{Visualstudio} což je bezplatný editor zdrojového kódu, používající se také na víše zmíněném Letním Robotickém táboře pro práci zrovna s těmito knihovnami. Já pracovala s Visual Studio Code již v minulosti, a i zde platilo, že jsem kolem měla lidi, kteří mi pomohli ve chvíli, když jsem měla s něčím problém. 
+ \href{https://helceletka.cz/tabory/#id=5357}{Helceltky}. Měla jsem tak o něco lehčí práci, protože jsem knihovny nemusela vytvářet sama. Program jsem se rozhodla psát v programu Visual StudioCode,\cite{Visualstudio} což je bezplatný editor zdrojového kódu, používající se také na víše zmíněném Letním Robotickém táboře pro práci zrovna s těmito knihovnami. Já pracovala s~Visual Studio Code již v minulosti, a i zde platilo, že jsem kolem měla lidi, kteří mi pomohli ve chvíli, když jsem měla s něčím problém. 
 
 Začátek mého programu vypadal takto:
 
@@ -16,14 +16,14 @@ Začátek mého programu vypadal takto:
 \lstinputlisting{Code/Zacatek-programu.cpp}
 
 
-První dva řádky jsou knihovny, které jsem při psaní využívala. Další tři jsou definované proměnné, které určují, kolik LED světel pásek má (8), jaký pin zajišťuje komunikaci s ESP32-DevKit (21), a číslo, které určuje, jaké číslo ponese první LED světlo s tím, že další LED byly očíslovány vzestupně.
+První dva řádky jsou knihovny, které jsem při psaní využívala. Další tři jsou definované proměnné, které určují, kolik LED světel pásek má (8), jaký pin zajišťuje komunikaci s~ESP32-DevKit (21), a číslo, které určuje, jaké číslo ponese první LED světlo s tím, že další LED byly očíslovány vzestupně.
 
-%todo Ukol-J – Knihovny --> upload na github (asi)
 %todo Otázka -->Odkazy na čtyři módy na github? 
 \newpage
 
 \section{První mód světla}
-První barvu prvního módu jsem se rozhodla, že bude červená. Jen obyčejná červená bez jakýkoliv jiných barev nebo blikání. Nejdříve jsem ale musela nadefinovat funkci, která mi pomohla v dalším postupu a usnadnila mi manipulaci se všemi LED. 
+První barvu 
+ \href{https://github.com/Nemesis-Rain/Supplements-/blob/main/4-barevne-mody/blikani-jedna.cpp}{prvního módu} jsem se rozhodla, že bude červená. Jen obyčejná červená bez jakýkoliv jiných barev nebo blikání. Nejdříve jsem ale musela nadefinovat funkci, která mi pomohla v dalším postupu a usnadnila mi manipulaci se všemi LED. 
 
 %\lstinputlisting{priklady_c/blikani_LED1.cpp}
 \lstinputlisting{Code/program1.cpp}
@@ -37,7 +37,7 @@ V kontextu tohoto programu to znamenalo, že když jsem barvu nastavila na červ
 
 \section{Druhý mód světla}
 %nechci aby to blikalo jako blázen 
-Jako druhý mód světla jsem se rozhodla, že použiju světle modrou barvu, která se bude pomalu stupňovat a pak tlumit a vznikne efekt pulzujícího modrého světla. Tohoto výsledku jsem docílila pomocí programu: 
+Jako \href{https://github.com/Nemesis-Rain/Supplements-/blob/main/4-barevne-mody/blikani-dva.cpp}{druhý mód} světla jsem se rozhodla, že použiju světle modrou barvu, která se bude pomalu stupňovat a pak tlumit a vznikne efekt pulzujícího modrého světla. Tohoto výsledku jsem docílila pomocí programu: 
 
 %\href{https://www.tecomat.cz/products/}{teco}
 
@@ -48,11 +48,8 @@ Tento program je navrhnut tak, že se zhasnuté LED začnou pomalu rozsvěcovat 
 
 Opět zde není použita plná síla LED světel, aby byly šetřeny moje oči.  
 
-%todo Funkce loop předělat do kurzívy
-%todo ESP32DevKitC taky Kurzívou?
-
 \section{Třetí mód světla}
-Nápad na to, jak udělat pomalu pulzující světlo, mi připadal opravdu skvělý. Takže jsem se rozhodla něco podobného aplikovat i na třetí mód. Tentokrát jsem ale zkusila, jaké by to bylo, kdyby červená barva pomalu přešla do žluté a ze žluté do zelené a pak zase zpět.
+Nápad na to, jak udělat pomalu pulzující světlo, mi připadal opravdu skvělý. Takže jsem se rozhodla něco podobného aplikovat i na \href{https://github.com/Nemesis-Rain/Supplements-/blob/main/4-barevne-mody/blikani-tri.cpp}{třetí mód}. Tentokrát jsem ale zkusila, jaké by to bylo, kdyby červená barva pomalu přešla do žluté a ze žluté do zelené a pak zase zpět.
 %Trénovala jsem si tu přechod barev
 
 
@@ -63,7 +60,7 @@ Program na tenhle mód je hodně jednoduchý a využívá podobného principu ja
 %todo Reference na poslední kapitolu? 
 
 \section{Čtvrtý mód světla}
-Původně jsem víc, než tři módy na LED neplánovala, ale po hraní si s různými barvami a barevnými světelnými přechody jsem neodolala a přidala jsem do paměti ještě jeden čtvrtý mód, který jsem pojmenovala \emph{Duha}.
+Původně jsem víc, než tři módy na LED neplánovala, ale po hraní si s různými barvami a~barevnými světelnými přechody jsem neodolala a přidala jsem do paměti ještě jeden \href{https://github.com/Nemesis-Rain/Supplements-/blob/main/4-barevne-mody/blikani-ctyri(duha).cpp}{čtvrtý mód}, který jsem pojmenovala \emph{Duha}.
 
 %nevím co s tímto obrázkem. Jak udělat aby šel text hned vedle obrázku? 
 %\href{https://www.tecomat.cz/products/}{teco}
@@ -72,12 +69,10 @@ Původně jsem víc, než tři módy na LED neplánovala, ale po hraní si s rů
 \lstinputlisting{Code/program4.cpp}
 
 
-V podstatě na tomto programu není vůbec nic nového. Zase začíná na červené, kdy pomalu projde přes žlutou k zelené, dále pokračuje na světle modrou a tmavě modrou, až se dostane z fialové a z fialové zpátky na začátek, což znamená na červenou. Tenhle efekt vypadá moc pěkně a vážně se pro barevné lampičky hodí. 
+V podstatě na tomto programu není vůbec nic nového. Zase začíná na červené, kdy pomalu projde přes žlutou k zelené, dále pokračuje na světle modrou a tmavě modrou, až~se dostane z fialové a z fialové zpátky na začátek, což znamená na červenou. Tenhle efekt vypadá moc pěkně a vážně se pro barevné lampičky hodí. 
 
 
 %Obrázky kódu? 
 %Název školních knihoven nebo nějaká bližší specifikace? Kde se dají sehnat a stáhnout? 
 %nevím jakým způsobem napsat zmínění knihoven
 %const int CHANNEL = 0;???
-
-\newpage
