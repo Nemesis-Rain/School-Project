@@ -1,6 +1,6 @@
 \documentclass{template/template}
 
-%\renewcommand{\familydefault}{\sfdefault} %% Only if the base font of the document is to be sans serif
+\renewcommand{\familydefault}{\sfdefault} %% Only if the base font of the document is to be sans serif
 %\usepackage{bera}
 
 \usepackage[T1]{fontenc} % evropské uvozovky
@@ -85,16 +85,16 @@
 \author{Anna Králová} % Jméno autora
 \institution{STŘEDNÍ PRŮMYSLOVÁ A~VYŠŠÍ ODBORNÁ ŠKOLA BRNO, Sokolská 1} % Celý název instituce
 \institutiontype{příspěvková organizace} % Typ instituce
-\thesistype{Ročníková práce}  % Typ práce/dokumentu
+\thesistype{maturitní práce}  % Typ práce/dokumentu
 \mentor{Mgr. Miroslav Burda} % Jméno vedoucího práce
 %\mentorstatement{Ing. Václava Zavadila} % Jméno vedoucího práce ve čtvrtém pádě
 
 % Newly added
 \authorname{Anna}
 \authorsurname{Králová}
-\schoolyear{2020/2021}
+\schoolyear{2021/2022}
 \field{Technické Lyceum} % Studijní obor
-\class{L3A}
+\class{L4A}
 
 \placefooter{Brno 2021}
 
@@ -127,7 +127,7 @@
 
 \section*{Zadání}
 
-Cílem této ročníkové práce je sestrojit fukční prototyp malého světýlka za použití programovatelného, inteligentního LED Pásku. 
+Cílem této ročníkové práce je sestrojit fukční prototyp světel za použití programovatelného, inteligentního LED Pásku. 
 
 
 %\subsection*
@@ -153,25 +153,17 @@ Cílem této ročníkové práce je sestrojit fukční prototyp malého světýl
 % Úvod práce
 \input{CHAPTERS/01 - UVOD.tex}
 
-\input{CHAPTERS/05 - POUŽITÉ SOUČÁSTKY.tex}
+\input{CHAPTERS/02 - ELEKTRONIKA.tex}
 
-% Realizace projektu
-\input{CHAPTERS/010 - PROGRAM.tex}
+\input{CHAPTERS/03 - OVLÁDÁNÍ.tex}
 
-% Návody na instalaci a rozjetí SolidWorks
-\input{CHAPTERS/015 - OVLÁDÁNÍ PŘES MOBIL.tex}
+\input{CHAPTERS/04 - PROGRAM.tex}
 
-% Modelování základních stroj.  součástí
-%\input{CHAPTERS/020 - FUNKČNOST LED.tex}
+\input{CHAPTERS/05 - ODLÍVÁNÍ.tex}
 
-% Operace v sestavách
-\input{CHAPTERS/025 - TEORETICKÉ VYUŽITÍ DO BUDOUCNA.tex}
+\input{CHAPTERS/06 - KRABIČKA.tex}
 
-% Návody z výkresové dokumentace
-%\input{CHAPTERS/030 - VYKRESOVA-DOKUMENTACE.tex}
-
-% Zaver prace
-\input{CHAPTERS/095 - ZAVER.tex}
+\input{CHAPTERS/10 - ZAVER.tex}
 
 \clearpage
 \phantomsection
