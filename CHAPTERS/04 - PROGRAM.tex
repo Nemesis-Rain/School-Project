@@ -1,14 +1,14 @@
 \chapter{Program a jeho realizace}
-Nejefektivnější se zdálo psát program v programovacím prostředí Visual Studio Code, se kterým jsem měla nejvíc zkušeností. 
+Nejefektivnější se mi zdálo psát program v programovacím prostředí \textit{Visual Studio Code}\cite{Visualstudio}, se kterým jsem měla nejvíc zkušeností. 
 
-Jedná se o bezplatný editor zdrojového kódu, vhodný pro programování v jakémkoliv programovacím jazyce, bez potřeby přepínání mezi editory. Visual Studio Code má podporu programovacích jazyků jako jsou: Phyton, java, C++, Javascript a mnoho dalších. 
+Jedná se o bezplatný editor zdrojového kódu, vhodný pro programování v jakémkoliv programovacím jazyce, bez potřeby přepínání mezi editory. \textit{Visual Studio Code} má podporu programovacích jazyků jako jsou: Python, Java, C++, Javascript a mnoho dalších. 
 
-Kromě Visual Studio Code bylo při realizaci použito i jeho plug-in rozšíření s názvem PlatformIO, což je soubor knihoven, kompatibilních s knihovnami od Robotárny. Robotárna toto rozšíření využívá a programuje v něm už léta.  Je skvěle kompatibilní s Arduinem a knihovnami SmartLeds – které byly použity z důvodu jejich jednoduchosti a intuitivnosti při programování s RGB.
+Kromě \textit{Visual Studio Code} bylo při realizaci použito i jeho plug-in rozšíření s názvem \textit{PlatformIO}\cite{platformio}, což je soubor knihoven, kompatibilních s knihovnami od \textit{Robotárny}. \textit{Robotárna} toto rozšíření využívá a programuje v něm už léta.  Je skvěle kompatibilní s knihovnami \textit{Arduina} a~knihovnami \textit{SmartLeds}, které byly použity z důvodu jejich jednoduchosti a intuitivnosti při programování s RGB.
 %Bylo použito vs. Požila jsem????
 
 
 
-\section{Diagram Programu }
+\section{Diagram programu }
 
 \begin{figure}[htbp]
 	\centering
@@ -17,39 +17,42 @@ Kromě Visual Studio Code bylo při realizaci použito i jeho plug-in rozšíře
 	%	\label{fig:install-sdk-3}
 \end{figure}
 
-Tento vývojový diagram ukazuje příkazy programu, jak jsou od spuštění (zmáčknutím tlačítka se začne provádět inicializace) až do vypnutí (proces vypnutí může být zahájen v jakékoliv části programu, stačí jen sepnout tlačítko, a tím přerušit dodávku el energie). 
+Tento vývojový diagram ukazuje příkazy programu, jak jsou od spuštění (zmáčknutím tlačítka se začne provádět inicializace) až do vypnutí (proces vypnutí může být zahájen v~jakékoliv části programu, stačí jen sepnout tlačítko, a tím přerušit dodávku el energie). 
 \newpage
 
 Zde jsou více rozepsané některé části programu:
 
 
 \subsection{Inicializace}
-V této části programu Po spuštění programu se začnou okamžitě načítat a spouštět veškeré knihovny, zahrnuté v programu. Mezi nimi je i náš soubor layout.hpp, který byl vytvořen a uložen v předchozí kapitole. Jsou zde také informace, který je řídící pin LED pásku a kolik LED bude pásek, obsahovat.
+V této části programu se začnou načítat a spouštět veškeré knihovny zahrnuté v programu. Mezi nimi je i soubor \textit{layout.hpp}, který byl vytvořen a uložen v předchozí kapitole. Jsou zde také informace, který je řídící pin LED pásku a kolik LED bude pásek obsahovat.
 
 
-\subsection{Konfigurace WiFi a připojení}
+\subsection{Konfigurace WiFi a Pipojení k mobilu k Wifi}
 %konfigurace = nastavení
-V této části programu se kompletně nastaví vysílaný WiFi signál. Nastaví se jméno a heslo, pod kterými se na ni lze připojit. V našem případě se jedná o WiFi s názvem LEDLED a heslem „ledkyledky.“ Dále se nastaví vlastník zařízení, název zařízení, čas kompilace zařízení a za pomoci souboru layout.hpp sa nastaví podoba ovládacího panelu v mobilním telefonu. 
+V těchto částech programu se kompletně nastaví a zapne vysílaný WiFi signál. Nastaví se jméno a heslo, pod kterými se na WiFi lze připojit. V našem případě se jedná o WiFi s~názvem LEDLED a heslem „ledkyledky“. Dále se nastaví vlastník zařízení, název zařízení, čas kompilace zařízení a za pomoci souboru \textit{layout.hpp} sa nastaví podoba ovládacího panelu v mobilním telefonu. 
 
-Po připojení mobilního telefonu na WiFi a zobrazení ovládacího panelu v aplikaci RBController už program v ESP32-DevKitC jenom čeká na jeden z naprogramovaných příkazů, aby ho mohl provést.
+Po připojení mobilního telefonu na WiFi a zobrazení ovládacího panelu v aplikaci \textit{RBController} už program v \textit{ESP32-DevKitC} jenom čeká na jeden z naprogramovaných příkazů, aby ho mohl provést.
 %Inicializace zařízení? 
 
 
 \subsection{Příkazy}
-Příkazy se v tomhle případě rozmí naše 4 nadefinovaná tlačítka, které jsme si vytvořili v předchozí kapitole. Každé z těchto tlačítek má v programu přidělenou vlastní funkci, kterou po zmáčknutí provede.
+Příkazy se v tomhle případě rozumí naše 4 nadefinovaná tlačítka, které jsme si vytvořili v předchozí kapitole. Každé z těchto tlačítek má v programu přidělenou vlastní funkci, kterou po zmáčknutí provede.
 
 Barva světel je naprogramovaná pomocí RGB spektra. V některých případech se jedná o jednu prostou barvu, v jiných o donekonečna se opakující se různobarevný cyklus. 
 
 Tlačítka a jejich příkazy: 
-\textbf{Červená růže} – barva LED se nastaví na RGB(64,0,0) – tedy červenou barvu. Touto barvou zařízení září po celou dobu. 
+\begin{itemize}
+	\item \textbf{Červená růže} – barva LED se nastaví na RGB(64,0,0) – tedy červenou barvu. Touto barvou zařízení září po celou dobu. 
+	
+	\item \textbf{Ledová růže} – jedná se o cyklický barevný přechod. Světle modré světlo se pomalu rozsvěcuje a poté zhasíná, čímž vytváří pulzující dojem magického předmětu. 
+	
+	\item \textbf{Disko růže} – cyklus, ve kterém se zběsile střídají 3 barvy (červená, modrá a zelená). Bylo původně spíše myšleno jako recese a nachází se zde pro zastoupení různorodosti barevných kombinací. 
+	
+	\item \textbf{Duhová růže} – mnohobarevný cyklus, který projde celým barevným spektrem. 
+\end{itemize}
 
-\textbf{Ledová růže} – Jedná se o cyklický barevný přechod. Světle modré světlo se pomalu rozsvěcuje a poté zhasíná, čímž vytváří pulzující dojem magického předmětu. 
 
-\textbf{Disko růže} – Cyklus, ve kterém se střídají zběsile 3 barvy (červená, modrá a zelená) Bylo spíše myšleno jako vtip a nachází se zde pro zastoupení různorodosti barevných kombinací. 
+Veškeré příkazy jsou provedeny pomocí nadefinované funkce \textit{SetLedAll}, která při zadání 3 čísel automaticky veškeré LED na pásku nastaví na danou RGB barvu, a není potřeba každou jednotlivou LED nastavovat samostatně. Tento příkaz také obsahuje také pár příkazů na stabilizaci LED.
 
-\textbf{Duhová růže} – Mnohobarevný cyklus, který projde celým barevným spektrem. 
-
-Veškeré příkazy jsou provedeny pomocí nadefinované funkce SetLedAll, která při zadání 3 čísel automaticky veškeré LED na pásku nastaví na danou RGB barvu, a není potřeba každou jednotlivou LED nastavovat samostatně. Tento příkaz také obsahuje také pár příkazů na stabilizaci LED.
-
-Při programovaní LED pásku nebyla použita maximální intenzita LED pásku. Rozsah RGB je sice od 0 do 255, ale při použití plné intenzity 225, bylo světlo z LED až moc jasné a po delší práci a koukání se na barvy z něj začali bolet oči a hlava. Proto v rámci bezpečnosti byla světelná intenzita LED pásku snížena na čtvrtinu. 
+Při programovaní LED pásku nebyla použita maximální intenzita LED pásku. Rozsah RGB je sice od 0 do 255, ale při použití plné intenzity 255 bylo světlo z LED až moc jasné a po delší práci a koukání se na barvy z něj začaly bolet oči a hlava. Proto byla světelná intenzita LED pásku snížena na čtvrtinu. 
 \newpage

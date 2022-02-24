@@ -128,7 +128,7 @@
 	\vfill
 
 	\section*{Prohlášení}
-	Prohlašuji, že jsem svou ročníkovou práci na téma \It{\@titlecz} vypracovala samostatně pod vedením Mgr. Miroslava Burdy a~s~použitím odborné literatury a~dalších informačních zdrojů, které jsou všechny citovány v~práci a~uvedeny v~seznamu literatury na~konci práce.
+	Prohlašuji, že jsem svoji hodobou maturitní práci na téma \It{\@titlecz} vypracovala samostatně pod vedením Mgr. Miroslava Burdy a~s~použitím odborné literatury a~dalších informačních zdrojů, které jsou všechny citovány v~práci a~uvedeny v~seznamu literatury na~konci práce.
 
 	\vspace{10mm}
 
